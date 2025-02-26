@@ -59,6 +59,7 @@ Clone the repo:
    cd social-polling-platform
    ```
 
+
 ### Set up a virtual environment
     ```bash
     python -m venv venv
@@ -72,15 +73,16 @@ Clone the repo:
 
 ### Configure environment variables (e.g., database URL, Redis host) in `.env`.
 
+
 ### Run migrations and start the server:
     ```bash
     python manage.py migrate
     python manage.py runserver
     ```
 
+
 ## Testing Scalability
 Use Locust to simulate high traffic:
-
     ```bash
     locust -f locustfile.py --host=http://localhost:8000
     ```
