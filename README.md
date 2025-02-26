@@ -54,31 +54,31 @@ To create a robust polling platform that maintains performance and reliability u
 
 ### Installation
 Clone the repo:
-   ```bash
-   git clone https://github.com/yourusername/social-polling-platform.git
-   cd social-polling-platform
-   ```
+```bash
+git clone https://github.com/yourusername/social-polling-platform.git
+cd social-polling-platform
+```
 
 
 ### Set up a virtual environment
-    ```bash
-    python -m venv venv
-    source venv/bin/acitvate # On Windows: venv\Scripts\activate
-    ```
+```bash
+python -m venv venv
+source venv/bin/acitvate # On Windows: venv\Scripts\activate
+```
     
 ### Install dependecies
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+pip install -r requirements.txt
+```
 
 ### Configure environment variables (e.g., database URL, Redis host) in `.env`.
 
 
 ### Run migrations and start the server:
-    ```bash
-    python manage.py migrate
-    python manage.py runserver
-    ```
+```bash
+python manage.py migrate
+python manage.py runserver
+```
 
 
 ## Testing Scalability
