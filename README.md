@@ -55,8 +55,8 @@ To create a robust polling platform that maintains performance and reliability u
 ### Installation
 Clone the repo:
 ```bash
-git clone https://github.com/yourusername/social-polling-platform.git
-cd social-polling-platform
+git clone https://github.com/devsylva/CrowdTick.git
+cd CrowdTick
 ```
 
 
