@@ -57,3 +57,11 @@ To create a robust polling platform that maintains performance and reliability u
    ```bash
    git clone https://github.com/yourusername/social-polling-platform.git
    cd social-polling-platform
+   ```
+
+### Set up a virtual environment
+```bash
+    python -m venv venv
+    source venv/bin/acitvate # On Windows: venv\Scripts\activate
+    ```
+    
