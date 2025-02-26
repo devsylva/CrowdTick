@@ -53,7 +53,7 @@ To create a robust polling platform that maintains performance and reliability u
 - PostgreSQL, Redis
 
 ### Installation
-1. Clone the repo:
+Clone the repo:
    ```bash
    git clone https://github.com/yourusername/social-polling-platform.git
    cd social-polling-platform
@@ -63,5 +63,21 @@ To create a robust polling platform that maintains performance and reliability u
 ```bash
     python -m venv venv
     source venv/bin/acitvate # On Windows: venv\Scripts\activate
-    ```
     
+### Install dependecies
+```bash
+    pip install -r requirements.txt
+
+### Configure environment variables (e.g., database URL, Redis host) in `.env`.
+
+### Run migrations and start the server:
+```bash
+    python manage.py migrate
+    python manage.py runserver
+
+## Testing Scalability
+Use Locust to simulate high traffic:
+
+```bash
+    locust -f locustfile.py --host=http://localhost:8000
+
