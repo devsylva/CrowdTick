@@ -35,7 +35,10 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0,1",
+]
 
 
 # Application definition
@@ -60,6 +63,18 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Require login for all API calls
+    ]
+}
+
 
 ROOT_URLCONF = 'crowdTick.urls'
 
@@ -151,3 +166,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CELERY_BROKER_URL = env('REDIS_URL')
 CELERY_RESULT_BACKEND = env('REDIS_URL')
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+
+# CSRF and Session Settings
+CSRF_COOKIE_SECURE = False  # False for local HTTP testing
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript/Locust to read it (optional)
+CSRF_COOKIE_NAME = 'csrftoken'
+CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
+SESSION_COOKIE_NAME = 'sessionid'
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000']  # Add if needed

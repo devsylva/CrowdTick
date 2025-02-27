@@ -21,7 +21,9 @@ class VoteCreateView(generics.CreateAPIView):
     serializer_class = VoteSerializer
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        vote = serializer.save(user=self.request.user)
+        process_vote.delay(vote.id) # Queue the task
+        return Response({'message': 'Vote accepted, processing...'}, status=status.HTTP_202_ACCEPTED)
 
 class PollResultsView(generics.RetrieveAPIView):
     queryset = Poll.objects.all()
