@@ -7,8 +7,8 @@ class CrowdTickUser(HttpUser):
 
     def on_start(self):
         """Login with CSRF token using hardcoded credentials."""
-        username = "sylva"
-        password = "Ejike1451$"
+        username = ""
+        password = ""
 
         # Step 1: Get CSRF token from login page
         response = self.client.get("/admin/login/", allow_redirects=False)
