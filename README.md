@@ -81,6 +81,11 @@ python manage.py runserver
 ```
 
 
+### Run Daphne
+```bash
+daphne -b 0.0.0.0 -p 8000 crowdTick.asgi:application
+```
+
 ## Testing Scalability
 Use Locust to simulate high traffic:
 ```bash
