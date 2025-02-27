@@ -5,6 +5,8 @@ from rest_framework.response import Response
 from django.core.cache import cache
 from .models import Poll, Vote
 from .serializers import PollSerializer, VoteSerializer
+from django.db import models
+from .tasks import process_vote
 
 # Create your views here.
 class PollCreateView(generics.CreateAPIView):
@@ -33,10 +35,12 @@ class PollResultsView(generics.RetrieveAPIView):
         poll = self.get_object()
         cache_key = f"poll_{poll.id}_results"
         results = cache.get(cache_key)
+        print(results)
         if not results:
             votes = Vote.objects.filter(poll=poll).values('choice').annotate(count=models.Count('choice'))
             results = {
                 vote['choice']: vote['count'] for vote in votes
             }
+            print(results)
             cache.set(cache_key, results, timeout=5)
         return Response(results, status=status.HTTP_200_OK)

@@ -86,6 +86,17 @@ python manage.py runserver
 daphne -b 0.0.0.0 -p 8000 crowdTick.asgi:application
 ```
 
+### Run Celery
+```bash
+celery -A crowdTick worker -l info
+```
+
+### Run Redis
+```bash
+redis-server
+```
+
+
 ## Testing Scalability
 Use Locust to simulate high traffic:
 ```bash
