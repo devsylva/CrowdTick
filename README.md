@@ -83,7 +83,7 @@ python manage.py runserver
 
 ## Testing Scalability
 Use Locust to simulate high traffic:
-    ```bash
-    locust -f locustfile.py --host=http://localhost:8000
-    ```
+```bash
+locust -f locustfile.py --host=http://localhost:8000
+```
 

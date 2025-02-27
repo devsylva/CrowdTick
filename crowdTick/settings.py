@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'polls',
     'rest_framework',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -95,7 +96,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'crowdTick.wsgi.application'
-
+ASGI_APPLICATION = 'crowdTick.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -120,6 +121,16 @@ CACHES = {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
     }
+}
+
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)], #redis server address
+        },
+    },
 }
 
 
